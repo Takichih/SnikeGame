@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=games
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/games
+CND_ARTIFACT_NAME_Debug=snikegame
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/snikegame
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=games.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/games.tar
+CND_PACKAGE_NAME_Debug=snikegame.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/snikegame.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=games
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/games
+CND_ARTIFACT_NAME_Release=snikegame
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/snikegame
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=games.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/games.tar
+CND_PACKAGE_NAME_Release=snikegame.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/snikegame.tar
 #
 # include compiler specific variables
 #
