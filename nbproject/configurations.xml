@@ -4,7 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Map.h</itemPath>
+      <itemPath>Player.h</itemPath>
+      <itemPath>Snike.h</itemPath>
       <itemPath>kbhit.h</itemPath>
+      <itemPath>methodes.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +17,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Map.cpp</itemPath>
+      <itemPath>Player.cpp</itemPath>
+      <itemPath>Snike.cpp</itemPath>
+      <itemPath>kbhit.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
+      <itemPath>methodes.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -37,9 +46,27 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Snike.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Snike.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kbhit.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="kbhit.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="methodes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="methodes.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -62,9 +89,27 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Snike.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Snike.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="kbhit.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="kbhit.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="methodes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="methodes.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
