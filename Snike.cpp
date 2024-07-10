@@ -51,12 +51,20 @@ Snike::~Snike () { }
     return m_tail_X;
   }
   
-  void Snike::setDir(Direction p_dir){
-    m_dir = p_dir;
+  void Snike::setCurrentDir(Direction p_currentDir){
+    m_previousDir = m_currentDir;
+    m_currentDir = p_currentDir;
   }
   
-  
-  Snike::Direction Snike::getDir()const{
-   return m_dir;
+  Snike::Direction Snike::getCurrentDir()const{
+   return m_currentDir;
  }
-  
+ 
+void Snike::setPreviousDir(Direction p_PreviousDir){
+    m_previousDir = p_PreviousDir;
+  }
+    
+ Snike::Direction Snike::getPreviousDir()const{
+   return m_previousDir;
+ }
+ 

@@ -7,6 +7,7 @@ class Snike
 {
   
 public:
+
   Snike ();
   Snike (const Snike& orig);
   virtual ~Snike ();
@@ -19,7 +20,7 @@ public:
   void setTailN(int p_tail_N);
   void setTailY(int p_tail_X[]);
   void setTailX(int p_tail_Y[]);
-  void setDir(Direction p_dir);
+  void setCurrentDir(Direction p_currentDir);
   
   int getHeadX()const;
   int getHeadY()const;
@@ -27,8 +28,10 @@ public:
   int getTailN()const;
   int* getTailY();
   int* getTailX();
-  Direction getDir()const;
+  Direction getCurrentDir()const;
   
+  Direction getPreviousDir()const;
+  void setPreviousDir(Direction p_PreviousDir);
   
 private:
   int m_headX;
@@ -37,7 +40,8 @@ private:
   int m_tail_N = 0;
   int m_tail_X[50];
   int m_tail_Y[50];
-  Direction m_dir = Move_Right;
+  Direction m_currentDir;
+  Direction m_previousDir;
 
 };
 

@@ -59,44 +59,79 @@ Snike TheSnike;
      char c = getch();
      switch(c)
        {
-       case 'w': TheSnike.setDir (Snike::Move_Up); break;
-       case 's': TheSnike.setDir (Snike::Move_Down); break;
-       case 'd': TheSnike.setDir (Snike::Move_Right); break;
-       case 'a': TheSnike.setDir (Snike::Move_Left); break;
+       case 'w': TheSnike.setCurrentDir (Snike::Move_Up); break;
+       case 's': TheSnike.setCurrentDir (Snike::Move_Down); break;
+       case 'd': TheSnike.setCurrentDir (Snike::Move_Right); break;
+       case 'a': TheSnike.setCurrentDir (Snike::Move_Left); break;
        case 'x': exit(0);
        }
    } 
   }
   
-  void move(Snike& theSnike){
-  shift_right(TheSnike.getTailX (), 50);
-  shift_right(TheSnike.getTailY (), 50);
-  TheSnike.getTailX ()[0]= TheSnike.getHeadX ();
-  TheSnike.getTailY ()[0]= TheSnike.getHeadY ();
-  
-  switch(TheSnike.getDir())
-    {
-        case TheSnike.Move_Up   :TheSnike.setHeadY(TheSnike.getHeadY()-1); break;
-        case TheSnike.Move_Down :TheSnike.setHeadY(TheSnike.getHeadY()+1); break;
-        case TheSnike.Move_Right:TheSnike.setHeadX(TheSnike.getHeadX()+1); break;
-        case TheSnike.Move_Left :TheSnike.setHeadX(TheSnike.getHeadX()-1); break;
-    }
-  
-   if (TheSnike.getHeadX ()<= 0 || TheSnike.getHeadX ()>= SnikeMap.getWidthX() - 1 || TheSnike.getHeadY ()<= 0 || TheSnike.getHeadY () >= SnikeMap.getHeightY() - 1) 
-    {
-        Player.setLose(true);
-    }
-   //else if(TheSnike.getHeadX () == *TheSnike.getTailX () && TheSnike.getHeadY ()== *TheSnike.getTailY ()){
-   //     Player.setLose(true);
-   // }
-  
- 
+void move(Snike& theSnike)
+{
+    shift_right(TheSnike.getTailX (), 50);
+    shift_right(TheSnike.getTailY (), 50);
+    TheSnike.getTailX ()[0]= TheSnike.getHeadX ();
+    TheSnike.getTailY ()[0]= TheSnike.getHeadY ();
 
-    // Check if the snake eats the fruit
-    if (TheSnike.getHeadX () == SnikeMap.getFruitX() && TheSnike.getHeadY () == SnikeMap.getFruitY()) {
-        Player.setScore(Player.getScore() + 10);
-        TheSnike.setTailN (TheSnike.getTailN()+1);
-        SnikeMap.setFruitX((rand() % (SnikeMap.getWidthX() - 2) + 1)); 
-        SnikeMap.setFruitY((rand() % (SnikeMap.getHeightY() - 2) + 1));
+    switch (TheSnike.getCurrentDir()) {
+        case Snike::Move_Up:
+            if (TheSnike.getPreviousDir() != Snike::Move_Down) {
+                TheSnike.setHeadY(TheSnike.getHeadY() - 1);
+            } else {
+                TheSnike.setHeadY(TheSnike.getHeadY() + 1); // Continuer dans la direction précédente
+            }
+            break;
+
+        case Snike::Move_Down:
+            if (TheSnike.getPreviousDir() != Snike::Move_Up) {
+                TheSnike.setHeadY(TheSnike.getHeadY() + 1); ;
+            } else {
+                TheSnike.setHeadY(TheSnike.getHeadY() - 1); // Continuer dans la direction précédente
+            }
+            break;
+
+        case Snike::Move_Right:
+            if (TheSnike.getPreviousDir() != Snike::Move_Left) {
+                TheSnike.setHeadX(TheSnike.getHeadX() + 1);
+            } else {
+                TheSnike.setHeadX(TheSnike.getHeadX() - 1); // Continuer dans la direction précédente
+            }
+            break;
+
+        case Snike::Move_Left:
+            if (TheSnike.getPreviousDir() != Snike::Move_Right) {
+                TheSnike.setHeadX(TheSnike.getHeadX() - 1);
+            } else {
+                TheSnike.setHeadX(TheSnike.getHeadX() + 1); // Continuer dans la direction précédente
+            }
+            break;
     }
-  }
+
+    //TheSnike.setPreviousDir(TheSnike.getCurrentDir());
+       
+
+    if (TheSnike.getHeadX ()<= 0 || TheSnike.getHeadX ()>= SnikeMap.getWidthX() - 1 
+        || TheSnike.getHeadY ()<= 0 || TheSnike.getHeadY () >= SnikeMap.getHeightY() - 1) 
+        {
+            Player.setLose(true);
+        }
+    else
+        for (int i=0; i<TheSnike.getTailN (); i++){
+            if(TheSnike.getHeadX () == TheSnike.getTailX ()[i] && TheSnike.getHeadY ()== TheSnike.getTailY ()[i])
+            {
+                Player.setLose(true);
+            }
+        }
+  
+        // Check if the snake eats the fruit
+    if (TheSnike.getHeadX () == SnikeMap.getFruitX() && TheSnike.getHeadY () == SnikeMap.getFruitY()) {
+            Player.setScore(Player.getScore() + 10);
+            TheSnike.setTailN (TheSnike.getTailN()+1);
+            SnikeMap.setFruitX((rand() % (SnikeMap.getWidthX() - 2) + 1)); 
+            SnikeMap.setFruitY((rand() % (SnikeMap.getHeightY() - 2) + 1));
+        }
+    
+     
+}
